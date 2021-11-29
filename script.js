@@ -1,21 +1,40 @@
-  // declaration des variables 
-  var randomNumber;
-  var userInput;
-  var message;
-  // entrer: saiser 
-   randomNumber = Math.floor(Math.random() * 100);
-   userInput = prompt("Enter a number");
-  // treatment 
-  var n = parseInt(userInput);
-  if (randomNumber > userInput) {
+//Variables Declaration 
+var btn;
+var output;
+var randomNumber;
+var guessedNumber;
+var attempts;
+var lostMessage;
 
-      message = "it is greater than " + " " + userInput;
+// entrer: saiser
 
-  }
+btn = document.getElementById('btn');
+output =document.getElementById("output");
+randomNumber = Math.floor(Math.random() * 100);
 
-  else{
+// traitment 
 
-      message = "it is smaller than " + " " + userInput;
-  }
-  // sortie: Affichage
-  alert(message);
+btn.addEventListener('click', function(){
+guessedNumber = document.getElementById('userinput').value;
+    
+   
+
+    if(guessedNumber == randomNumber) {
+
+        output.innerHTML  = "Correct";
+        
+    }
+
+    else {
+
+        if(randomNumber > guessedNumber){
+
+            output.innerHTML = "le nombre est plus grand que " + " " + guessedNumber;
+        }
+
+    else {
+
+        output.innerHTML = "le nombre est moins que" + " " + guessedNumber;
+    }
+}
+});
