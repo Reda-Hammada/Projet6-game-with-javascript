@@ -1,0 +1,2 @@
+var randoMnumber;
+var output;
