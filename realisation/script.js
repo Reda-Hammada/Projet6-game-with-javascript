@@ -1,37 +1,71 @@
-//variable declarations:
-var btn
-var randoMnumber;
-var output;
+//varibales declaration 
+var btn;
 var guessedNumber;
+var randomNumber;
+var output;
 var attempts;
-var lostMessage;
+var tentative;
 
-// entrer: saiser 
-
-btn = document.getElementById('btn');
-lostMessage ="you have lost after";
-guessedNumber = document.getElementById('output').value;
+//Entrer: saiser 
+btn = document.getElementById('bt');
+randomNumber = Math.floor(Math.random() * 100);
+guessedNumber = document.getElementById('userinput');
+output = document.getElementById('useroutput');
 attempts = 10;
-randoMnumber = Math.floor(Math.random() * 100);
-
-btn.addEventListener('click',  function(){
-
-    if( randoMnumber == guessedNumber) {
+tentative = document.getElementById('attempt');
 
 
-        output = this.innerHTML = 'correct';
-    }
+// traitment 
 
-    else if (randoMnumber > guessedNumber) {
+btn.addEventListener('click', function(){
+   --attempts;
+    guessedNumber = document.getElementById('userinput').value;
+    tentative.innerHTML = attempts + '-tentative';
 
-        output = this.innerHTML = "le nombre est plus grand que" + r ;
+    if ( attempts > 0) {
+        
+        if(randomNumber == guessedNumber) {
+                if( attempts >= 8){
+
+                    output.innerHTML =  'Bravo, vous etes un Génie !!!';
+                    
+                }
+
+                else {
+            
+                    output.innerHTML ='Félicitations, vous avez gagné après  tentatives ' + (10 - attempts);
+                }
+        }
+         else{
+
+                if(randomNumber > guessedNumber){
+
+                    output.innerHTML = "plus";
+                }
+
+                
+                else{
+
+                    output.innerHTML = "moins que";
+                }
+            }
+
+           
     }
 
     else {
 
-        output = this.innerHTML = "le nombre est moin que"
-    }
 
+            output.innerHTML = "c'est raté";
+        }
+
+        
+    
+
+  
 
 });
+
+
+// affichage 
 
