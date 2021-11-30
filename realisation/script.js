@@ -67,5 +67,4 @@ btn.addEventListener('click', function(){
 });
 
 
-// affichage 
 
