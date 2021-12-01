@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Solicode"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-12-01 01:39:16 PM"/>
+        <attribute name="created" value="U29saWNvZGU7REVTS1RPUC0xUUNGUDg5OzIwMjEtMTItMDE7MTA6MTA6NTcgQU07MzExMw=="/>
+        <attribute name="edited" value="U29saWNvZGU7REVTS1RPUC0xUUNGUDg5OzIwMjEtMTItMDE7MDE6Mzk6MTYgUE07MTszMjQy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="attempts" type="Integer" array="False" size=""/>
+            <assign variable="attempts" expression="10"/>
+            <declare name="lostMessage" type="String" array="False" size=""/>
+            <assign variable="lostMessage" expression="&quot;you lost&quot;"/>
+            <declare name="guessedNumber" type="Integer" array="False" size=""/>
+            <input variable="guessedNumber"/>
+            <declare name="randomNumber" type="Integer" array="False" size=""/>
+            <assign variable="randomNumber" expression="Random(100)"/>
+            <while expression="randomNumber &lt;&gt; guessedNumber">
+                <if expression="randomNumber &gt; guessedNumber">
+                    <then>
+                        <output expression="&quot;Plus&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;moins&quot;" newline="True"/>
+                    </else>
+                </if>
+                <assign variable="attempts" expression="attempts - 1"/>
+                <input variable="guessedNumber"/>
+                <if expression="attempts = 0">
+                    <then>
+                        <output expression="&quot;you lost&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <if expression="attempts &gt;= 8">
+                <then>
+                    <if expression="randomNumber == guessedNumber">
+                        <then>
+                            <output expression="&quot;you are genuis&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </then>
+                <else>
+                    <if expression="randomNumber == guessedNumber">
+                        <then>
+                            <output expression="&quot;you won after &quot; &amp; attempts &amp; &quot; attempt&quot;" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

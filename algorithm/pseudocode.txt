@@ -1,0 +1,35 @@
+Function Main
+    Declare Integer attempts
+    
+    Assign attempts = 10
+    Declare String lostMessage
+    
+    Assign lostMessage = "you lost"
+    Declare Integer guessedNumber
+    
+    Input guessedNumber
+    Declare Integer randomNumber
+    
+    Assign randomNumber = Random(100)
+    While randomNumber <> guessedNumber
+        If randomNumber > guessedNumber
+            Output "Plus"
+        False:
+            Output "moins"
+        End
+        Assign attempts = attempts - 1
+        Input guessedNumber
+        If attempts = 0
+            Output "you lost"
+        End
+    End
+    If attempts >= 8
+        If randomNumber == guessedNumber
+            Output "you are genuis"
+        End
+    False:
+        If randomNumber == guessedNumber
+            Output "you won after " & attempts & " attempt"
+        End
+    End
+End
